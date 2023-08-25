@@ -1,6 +1,4 @@
 import "./styles.scss"
+import "./theme"
+import "./task-creation"
 
-const container = document.querySelector('#container');
-const text = document.createElement('h1');
-text.textContent = "hi from ts";
-container.appendChild(text)

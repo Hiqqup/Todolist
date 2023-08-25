@@ -5,11 +5,29 @@
   <meta charset="UTF-8" />
   <title>Todolist</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-  <h1>Hello from the html</h1>
-  <div id="container"></div>
+  <h1>Todolist</h1>
+
+  <div class="project">
+    <select name="project" id="project">
+
+    </select>
+    <button id="new-project">+</button>
+  </div>
+
+  <div class="tasks"></div>
+
+  <input type="text" id="task-namer" class="hidden" placeholder="Name Your Task..." minlength="1" required>
+
+  <button id="new-task">+ new task</button>
+
+  <button id="theme" value="dark"><span class="material-symbols-outlined">
+      dark_mode
+    </span></button>
 </body>
 
 </html>

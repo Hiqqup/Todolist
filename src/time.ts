@@ -1,13 +1,14 @@
-
+import { addToStorage } from "./strorage";
 function toggleTimer(button: HTMLButtonElement, timer: HTMLElement, time: { counter: number, interval: NodeJS.Timeout }) {
   const status = button.className == "play_arrow" ? "pause" : "play_arrow";
   button.className = status;
   button.innerHTML = `<span class="material-symbols-outlined">${status}</span>`;
   if (status == "pause") {
-    timer.textContent = secondConvert(time.counter);
+    timer.textContent = displayTime(time.counter);
     time.interval = setInterval(() => {
       time.counter++;
-      timer.textContent = secondConvert(time.counter);
+      timer.textContent = displayTime(time.counter);
+      addToStorage();
     }, 1000);
   }
   else {
@@ -15,7 +16,7 @@ function toggleTimer(button: HTMLButtonElement, timer: HTMLElement, time: { coun
     clearInterval(time.interval);
   }
 }
-function secondConvert(seconds: any) {
+function displayTime(seconds: any) {
   const hours = Math.floor(seconds / 3600);
   seconds = seconds % 3600;
   let minutes: any = Math.floor(seconds / 60);
@@ -29,4 +30,4 @@ function secondConvert(seconds: any) {
 function pad(num: number) {
   return num < 10 ? `0${num}` : num;
 }
-export { toggleTimer };
+export { toggleTimer, displayTime };

@@ -13,11 +13,12 @@
   <h1>Todolist</h1>
 
   <div class="project">
-    <select name="project" id="project">
-
-    </select>
+    <select name="project" id="project"> </select>
     <button id="new-project">+</button>
+    <button id="delete-project"><span class="material-symbols-outlined">delete </span></button>
   </div>
+
+  <input type="text" id="project-namer" class="hidden" placeholder="Name Your new Project..." required>
 
   <div class="tasks"></div>
 
@@ -27,13 +28,11 @@
   </div>
 
 
-  <input type="text" id="task-namer" class="hidden" placeholder="Name Your Task..." minlength="1" required>
+  <input type="text" id="task-namer" class="hidden" placeholder="Name Your Task..." required>
 
   <button id="new-task">+ new task</button>
 
-  <button id="theme" value="dark"><span class="material-symbols-outlined">
-      dark_mode
-    </span></button>
+  <button id="theme" value="dark"><span class="material-symbols-outlined">dark_mode </span></button>
 </body>
 
 </html>

@@ -1,10 +1,12 @@
-import { TaskData } from "./types";
+import { Task } from "./task";
+import { Project } from "./project";
 
-const tasks: Array<TaskData> = localStorage.getItem("tasks") === null ? [] : JSON.parse(localStorage.getItem("tasks"));
+const projects = localStorage.getItem("projects") === null ? [Project("My first project", [])] :
+  JSON.parse(localStorage.getItem("projects"));
 
 function addToStorage() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem("projects", JSON.stringify(projects));
 }
 
-export { tasks, addToStorage };
+export { projects, addToStorage };
 

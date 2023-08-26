@@ -1,7 +1,5 @@
-import { toggleTimer, displayTime } from "./time";
-import { toggleNotes } from "./notes";
-import { TaskData } from "./types"
-import { addToStorage, tasks } from "./strorage";
+import { TaskData } from "./types";
+
 
 const tasksDiv = document.querySelector(".tasks");
 function Task(name: string, taskData?: TaskData) {
@@ -38,8 +36,9 @@ function Task(name: string, taskData?: TaskData) {
       },
     }
   }
-  else {
-    displayTime(taskData.time.counter);
+  if (taskData.time.counter) {
+    console.log("i have time");
+    timer.textContent = displayTime(taskData.time.counter);
   }
   cut.addEventListener("click", () => cutTask(container, taskData));
   play.addEventListener("click", () => toggleTimer(play, timer, taskData.time));
@@ -47,20 +46,8 @@ function Task(name: string, taskData?: TaskData) {
 
   return taskData;
 }
-
-function cutTask(container: HTMLDivElement, taskData: TaskData) {
-  for (let i = 0; i < tasks.length; i++) {
-
-    if (tasks[i].name == taskData.name) {
-      console.log(i);
-      tasks.splice(i, 1);
-    }
-
-  }
-  container.remove();
-  addToStorage();
-}
-
-
-
 export { Task };
+
+import { toggleTimer, displayTime } from "./time";
+import { toggleNotes } from "./notes";
+import { cutTask } from "./cut-task";

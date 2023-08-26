@@ -8,4 +8,8 @@ interface TaskData {
     text: string
   };
 }
-export { TaskData };
+interface ProjectType {
+  name: string,
+  tasks: Array<TaskData>
+}
+export { TaskData, ProjectType };

@@ -16,13 +16,16 @@ font-family: 'Roboto Mono', monospace;
 margin: 0;
 color: var(--fg)
 }
+html{
+  width: 100vw;
+  overflow: hidden;
+}
 body{
   flex-direction: column;
   background-color: var(--bg);
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 100vh;
 }
 h1{
   margin-top: 50px;

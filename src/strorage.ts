@@ -20,7 +20,6 @@ function addToStorage() {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
 function updateIndex(i: number) {
-  console.log("index updated");
   index = i;
   localStorage.setItem("index", JSON.stringify(index));
 }

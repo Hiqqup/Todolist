@@ -1,10 +1,9 @@
 import { Project } from "./project";
-import { projects } from "./strorage";
-import { ProjectType, TaskData } from "./types";
-import { Task } from "./task";
+import { projects, addToStorage, updateIndex } from "./strorage";
 
 const addProject = document.querySelector("#new-project");
 const projectNamer: HTMLInputElement = document.querySelector("#project-namer");
+const projectSelecter: HTMLSelectElement = document.querySelector("#project");
 addProject.addEventListener("click", () => {
   if (projectNamer.className == "hidden") {
     projectNamer.classList.remove("hidden")
@@ -12,6 +11,7 @@ addProject.addEventListener("click", () => {
   }
   else {
     submit()
+    updateIndex(projectSelecter.selectedIndex);
   }
 });
 projectNamer.addEventListener("keypress", (e: KeyboardEvent) => {
@@ -26,7 +26,7 @@ function submit() {
     projectNamer.classList.add("hidden");
     projects.push(Project(projectNamer.value));
     projectNamer.value = "";
-    //addToStorage();
+    addToStorage();
   }
   else {
     projectNamer.reportValidity();
@@ -43,10 +43,3 @@ function checkName() {
   return true;
 }
 
-projects.forEach((project: ProjectType) => {
-  project = Project(project.name, project.tasks);
-  project.tasks.forEach((task: TaskData) => {
-    task = Task(task.name, task);
-  });
-});
-//the dreaded project array
